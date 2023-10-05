@@ -1,0 +1,131 @@
+@keyframes buttonAnimate {
+    from {
+        margin-top: -90%;
+    }
+
+    to {
+        margin-top: 20%;
+    }
+}
+
+#cards {
+    .card {
+        margin: 0 auto;
+        width: 315px;
+        display: flex;
+        flex-direction: column;
+        margin-top: 50px;
+
+
+
+        &:hover .card-img .card-btn button {
+            display: block;
+            animation: buttonAnimate;
+            animation-duration: 1000ms;
+            animation-timing-function: ease-in-out;
+            animation-fill-mode: forwards;
+        }
+
+        .card-img {
+            width: 100%;
+            height: 240px;
+            overflow: hidden;
+            position: relative;
+
+            img {
+                width: 100%;
+                height: 100%;
+                border-radius: 6px 6px 0 0;
+                z-index: 2;
+            }
+
+            .card-btn {
+                position: absolute;
+                z-index: 999;
+                margin-top: 30%;
+                margin-left: 30%;
+
+                button {
+                    @include button-mixing();
+                    width: 100px;
+                    height: 50px;
+                    display: none;
+                    transition: 1;
+                }
+            }
+        }
+
+        .card-desc {
+            background-color: $card-bg-color;
+            padding: 20px;
+
+            h2 {
+                margin-bottom: 20px;
+                font-size: 1.5rem;
+            }
+
+            p {
+                font-size: $paragraft-size;
+                margin-bottom: 10px;
+                color: $paragraft-color;
+            }
+
+            .card-end {
+                border-top: 1px solid $border-color;
+                @extend %centerElemets;
+                justify-content: space-between;
+
+                .rating {
+                    @extend %centerElemets;
+                    flex-direction: column;
+                    gap: 10px;
+
+                    .icons {
+
+                        i {
+                            color: $icons-color;
+                        }
+                    }
+                }
+
+                .price {
+                    p {
+                        &:first-child {
+                            color: $price-color;
+                            font-size: 1.5rem;
+                            @extend %centerElemets;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .btn {
+        margin: 0 auto;
+        @extend %centerElemets;
+
+        .cards-btn {
+            @extend %centerElemets;
+            @include button-mixing();
+            width: 220px;
+            height: 50px;
+            font-size: 1rem;
+            margin: 50px 0;
+        }
+    }
+}
+
+@media only screen and (max-width:576px) {
+    #cards {
+        .btn {
+            .cards-btn {
+                @extend %centerElemets;
+                @include button-mixing();
+                font-size: 0.8rem;
+                margin: 50px 0;
+            }
+        }
+    }
+
+}
