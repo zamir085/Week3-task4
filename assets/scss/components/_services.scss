@@ -1,7 +1,7 @@
 #service {
     margin-bottom: 50px;
 
-    .service-title {
+    .service__title {
         @extend %centerElemets;
         flex-direction: column;
         gap: 20px;
@@ -10,25 +10,25 @@
         margin-bottom: 50px;
         text-align: center;
 
-        h2 {
+        &--header {
             font-size: 2rem;
             color: $title-color;
         }
 
-        p {
+        &--paragraf {
             font-size: $paragraft-size;
             color: $paragraft-color;
         }
     }
 
-    .service-card {
+    .service__card {
         @extend %centerElemets;
         gap: 10px;
         flex-direction: column;
         margin: 0 auto;
         width: 300px;
 
-        .service-box {
+        &__box {
             border: 2px solid $service-border-color;
             border-radius: 50%;
             width: 79px;
@@ -37,7 +37,7 @@
             transition: .5s;
             position: relative;
 
-            i {
+            &--icon {
                 color: $button-bg-color;
             }
 
@@ -65,12 +65,12 @@
             }
         }
 
-        h3 {
+        &--title {
             font-size: $service-card-title-font-size;
             font-weight: $service-card-title-font-weight;
         }
 
-        p {
+        &--paragraf {
             color: $paragraft-color;
             font-size: $paragraft-size;
             text-align: center;
@@ -80,16 +80,17 @@
 
 @media only screen and (max-width:768px) {
     #service {
-        .service-card {
+        .service__card {
             margin-top: 30px;
 
-            p {
+            &--paragraf{
                 display: none;
-
-                h3 {
-                    font-weight: bold;
-                }
             }
+
+            &--title {
+                font-weight: bold;
+            }
+
         }
     }
 }
